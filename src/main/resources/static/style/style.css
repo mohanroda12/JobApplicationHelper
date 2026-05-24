@@ -1,0 +1,31 @@
+:root {
+    --dark-grey: #272727;
+    --cream: #d8c3ab;
+    --white: floralwhite;
+}
+
+body {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    min-height: 100vh;
+}
+
+a:link {
+    text-decoration: none;
+}
+
+.login-button {
+    display: inline-block;
+    background: var(--white);
+    color: var(--dark-grey);
+    border-radius: 8px;
+    padding: 5px 5px 5px 5px;
+    border: 3px solid dimgrey;
+    font-size: 25px;
+    font-weight: 600;
+    transition: 0.2s;
+}
+
+.login-button:hover {
+    background-color: #c8c8c8;
+    transform: translateY(-1px);
+}
