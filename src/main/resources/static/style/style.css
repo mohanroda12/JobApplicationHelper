@@ -22,7 +22,7 @@ a:link {
     border: 3px solid dimgrey;
     font-size: 25px;
     font-weight: 600;
-    transition: 0.2s;
+    transition: 0.15s;
 }
 
 .login-button:hover {
