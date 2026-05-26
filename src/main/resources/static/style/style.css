@@ -2,6 +2,7 @@
     --dark-grey: #272727;
     --cream: #d8c3ab;
     --white: floralwhite;
+    --orange: #d85f14;
 }
 
 body {
@@ -42,16 +43,38 @@ a:link {
 .login-form {
     display: flex;
     flex-direction: column;
-    padding: 20px;
-    border-radius: 5px;
+    padding: 20px 80px 60px 80px;
+    border-radius: 25px;
     gap: 5px;
+    font-size: 19px;
     background-color: var(--cream);
+    border: 3px solid var(--dark-grey) ;
 }
 
-.login-form h1 {
+.login-form h1{
     text-align: center;
 }
 
+.login-form a{
+    text-align: center;
+    text-decoration: underline;
+    font-size: 14px;
+}
+
+.login-form input[type="password"], input[type="email"] {
+    border-radius: 6px;
+    border: 1px solid;
+    font-size: 20px;
+    height: 30px;
+}
+
 .login-box input[type="submit"] {
-    margin-top: 10px;
+    margin-top: 30px;
+    background-color: var(--orange);
+    color: var(--white);
+}
+
+.login-box input[type="submit"]:hover {
+    background: transparent;
+    color: var(--orange);
 }
