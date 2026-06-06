@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Log In</title>
+    <link rel="stylesheet" href="/style/style.css">
+</head>
+<body>
+<div class="login-box" th:object="${loginModel}">
+    <p>Email: <span th:text="*{email}"></span></p>
+    <p>Password: <span th:text="*{password}"></span></p>
+</div>
+</body>
+</html>

@@ -81,3 +81,13 @@ a:link {
     background: transparent;
     color: var(--orange);
 }
+
+.login-alert {
+    font-size: 12px;
+    font-weight: bold;
+    color: red;
+    margin: 0;
+    width: 13vw;
+    word-wrap: break-word;
+    padding: 0;
+}
