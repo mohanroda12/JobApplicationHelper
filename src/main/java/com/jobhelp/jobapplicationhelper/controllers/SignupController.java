@@ -1,6 +1,6 @@
 package com.jobhelp.jobapplicationhelper.controllers;
 
-import com.jobhelp.jobapplicationhelper.models.LoginModel;
+import com.jobhelp.jobapplicationhelper.models.SignupModel;
 import jakarta.validation.Valid;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -10,21 +10,21 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("/login")
-public class LoginController {
+@RequestMapping("/signup")
+public class SignupController {
 
     @GetMapping("")
-    public String displayLogin(Model model) {
-        model.addAttribute("loginModel", new LoginModel());
-        return "login";
+    public String displaySignup(Model model) {
+        model.addAttribute("signupModel", new SignupModel());
+        return "signup";
     }
 
     @PostMapping("")
-    public String processLogin(@Valid LoginModel loginModel, BindingResult bindingResult, Model model) {
-        model.addAttribute("loginModel", loginModel);
+    public String processLogin(@Valid SignupModel signupModel, BindingResult bindingResult, Model model) {
+        model.addAttribute("signupModel", signupModel);
         if(bindingResult.hasErrors()) {
-            return "login";
+            return "signup";
         }
-        return "dev/loginResultsDevPage";
+        return "dev/signupResultsDevPage";
     }
 }
