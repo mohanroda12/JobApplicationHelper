@@ -1,5 +1,6 @@
 :root {
     --dark-grey: #272727;
+    --grey: #404040;
     --cream: #d8c3ab;
     --white: floralwhite;
     --orange: #d85f14;
@@ -8,6 +9,8 @@
 body {
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     min-height: 100vh;
+    padding: 0;
+    margin: 0;
 }
 
 a:link {
@@ -90,4 +93,38 @@ a:link {
     width: 13vw;
     word-wrap: break-word;
     padding: 0;
+}
+
+.nav-bar {
+    background-color: var(--dark-grey);
+    padding: 25px 10px 25px 10px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.right-elements {
+    display: flex;
+    gap: 15px;
+}
+
+.nav-bar a{
+    text-decoration: none;
+
+}
+
+.home-link {
+    display: inline-block;
+    color: var(--white);
+    font-weight: 750;
+    font-size: 25px;
+    border-radius: 20px;
+    padding: 10px;
+}
+
+.home-link:hover {
+    transform: translateY(-1px);
+    transition: 0.15s;
+    background-color: var(--grey);
 }
