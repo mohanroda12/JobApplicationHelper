@@ -1,13 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" layout:decorate="~{layouts/defaultLayout}"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 <head>
-    <meta charset="UTF-8">
     <title>Log In</title>
-    <link rel="stylesheet" href="/style/style.css">
 </head>
 <body>
-    <div th:replace="layouts/commonHeader :: header"></div>
-    <div class="login-box">
+
+    <div class="login-box" layout:fragment="content">
         <form class="login-form" action="#" method="post" th:action="@{login}" th:object="${loginModel}">
             <h1>Login</h1>
 

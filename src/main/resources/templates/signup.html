@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" layout:decorate="~{layouts/defaultLayout}"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 <head>
-    <meta charset="UTF-8">
     <title>Sign Up</title>
-    <link rel="stylesheet" href="/style/style.css">
 </head>
 <body>
-<div class="login-box">
+
+<div class="login-box" layout:fragment="content">
     <form class="login-form" action="#" method="post" th:action="@{signup}" th:object="${signupModel}">
         <h1>Sign Up</h1>
 

@@ -40,7 +40,7 @@ a:link {
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    height: 100vh;
+    height: 90vh;
 }
 
 .login-form {
@@ -121,10 +121,10 @@ a:link {
     font-size: 25px;
     border-radius: 20px;
     padding: 10px;
+    transition: 0.1s;
 }
 
 .home-link:hover {
-    transform: translateY(-1px);
-    transition: 0.15s;
+    transform: scale(1.03);
     background-color: var(--grey);
 }
