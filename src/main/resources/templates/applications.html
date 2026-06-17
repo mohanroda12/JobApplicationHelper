@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" layout:decorate="~{layouts/defaultLayout}"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+    <title>Applications</title>
+</head>
+<body>
+<div layout:fragment="content">
+    <table>
+
+        <thead>
+            <tr>
+                <th>Company</th>
+                <th>Role</th>
+                <th>Application status</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr th:each="jobApplication : ${applications}">
+                <td th:text="${jobApplication.company}">Company</td>
+                <td th:text="${jobApplication.role}">Company</td>
+                <td th:text="${jobApplication.status}">Company</td>
+            </tr>
+        </tbody>
+
+    </table>
+</div>
+</body>
+
+</html>

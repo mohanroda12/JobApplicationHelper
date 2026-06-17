@@ -4,7 +4,7 @@ import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.Size;
 
-public class LoginModel {
+public class Login {
 
     @NotEmpty(message="Please enter an email")
     @Email(message="Please enter a valid email e.g. example@email.com")
@@ -13,10 +13,10 @@ public class LoginModel {
     @Size(min=8, max=15, message="Password must be between 8 and 15 characters")
     private String password;
 
-    public LoginModel() {
+    public Login() {
     }
 
-    public LoginModel(String password, String email) {
+    public Login(String password, String email) {
         this.password = password;
         this.email = email;
     }

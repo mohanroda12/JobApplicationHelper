@@ -6,11 +6,13 @@ public class Account {
     private int id;
     private String name;
     private String email;
+    private boolean loggedIn;
 
-    public Account(int id, String name, String email) {
+    public Account(int id, String name, String email, boolean loggedIn) {
         this.id = id;
         this.name = name;
         this.email = email;
+        this.loggedIn = loggedIn;
     }
 
     // getters and setters
@@ -36,6 +38,14 @@ public class Account {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public boolean isLoggedIn() {
+        return loggedIn;
+    }
+
+    public void setLoggedIn(boolean loggedIn) {
+        this.loggedIn = loggedIn;
     }
 
     @Override

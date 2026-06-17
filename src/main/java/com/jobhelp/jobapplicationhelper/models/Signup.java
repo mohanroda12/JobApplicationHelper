@@ -4,7 +4,7 @@ import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.Size;
 
-public class SignupModel {
+public class Signup {
 
     @NotEmpty(message="Please enter an email")
     @Email(message="Please enter a valid email e.g. example@email.com")
@@ -16,10 +16,10 @@ public class SignupModel {
     @Size(min=1, max=15, message="Name must be between 1 and 15 characters")
     private String name;
 
-    public SignupModel() {
+    public Signup() {
     }
 
-    public SignupModel(String password, String email, String username) {
+    public Signup(String password, String email, String username) {
         this.password = password;
         this.email = email;
         this.name = username;

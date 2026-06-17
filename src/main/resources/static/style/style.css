@@ -119,12 +119,10 @@ a:link {
     color: var(--white);
     font-weight: 750;
     font-size: 25px;
-    border-radius: 20px;
     padding: 10px;
-    transition: 0.1s;
 }
 
 .home-link:hover {
-    transform: scale(1.03);
+    border-radius: 15px;
     background-color: var(--grey);
 }
