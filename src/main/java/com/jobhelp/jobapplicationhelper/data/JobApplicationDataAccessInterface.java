@@ -8,7 +8,7 @@ public interface JobApplicationDataAccessInterface {
 
     public List<JobApplication> getJobApplications();
     public JobApplication getByID(long id);
-    public List<JobApplication> searchJobApplications(String searchTerm);
+    public List<JobApplication> searchByRole(String searchTerm);
 
     public long addOne(JobApplication newApplication);
     public long deleteOne(long id);

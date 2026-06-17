@@ -1,30 +1,49 @@
 package com.jobhelp.jobapplicationhelper.services;
 
-import com.jobhelp.jobapplicationhelper.models.ApplicationStatus;
+import com.jobhelp.jobapplicationhelper.data.JobApplicationDataAccessInterface;
 import com.jobhelp.jobapplicationhelper.models.JobApplication;
+import org.springframework.beans.factory.annotation.Autowired;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class JobApplicationService implements  JobApplicationServiceInterface{
 
-    private List<JobApplication> jobApplications;
+    @Autowired
+    JobApplicationDataAccessInterface jobApplicationDAO;
 
     @Override
     public List<JobApplication> getJobApplications() {
+        return jobApplicationDAO.getJobApplications();
+    }
 
-        jobApplications.add(new JobApplication("Google", 1L, "Developer", ApplicationStatus.APPLIED));
-        jobApplications.add(new JobApplication("Ferrari", 2L, "Engineer", ApplicationStatus.OFFER));
-        jobApplications.add(new JobApplication("Gym group", 3L, "Personal trainer", ApplicationStatus.REJECTION));
-        jobApplications.add(new JobApplication("Amazon", 4L, "Delivery driver", ApplicationStatus.INTERVIEW));
+    @Override
+    public JobApplication getByID(long id) {
+        return null;
+    }
 
-        return jobApplications;
+    @Override
+    public List<JobApplication> searchByRole(String searchTerm) {
+        return jobApplicationDAO.searchByRole(searchTerm);
+    }
+
+    @Override
+    public long addOne(JobApplication newApplication) {
+        return jobApplicationDAO.addOne(newApplication);
+    }
+
+    @Override
+    public long deleteOne(long id) {
+        return 0;
+    }
+
+    @Override
+    public JobApplication updateOne(long idToUpdate, JobApplication updatedApplication) {
+        return null;
     }
 
     @Override
     public void init() {
         System.out.println("Initialization of jobApplication service");
-        jobApplications = new ArrayList<>();
     }
 
     @Override

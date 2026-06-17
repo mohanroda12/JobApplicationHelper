@@ -1,5 +1,6 @@
 package com.jobhelp.jobapplicationhelper;
 
+import com.jobhelp.jobapplicationhelper.data.JobApplicationFakeDAO;
 import com.jobhelp.jobapplicationhelper.services.AccountService;
 import com.jobhelp.jobapplicationhelper.services.AccountServiceInterface;
 import com.jobhelp.jobapplicationhelper.services.JobApplicationService;
@@ -21,5 +22,4 @@ public class SpringConfig {
     public JobApplicationServiceInterface getJobApplicationService() {
         return new JobApplicationService();
     }
-
 }
