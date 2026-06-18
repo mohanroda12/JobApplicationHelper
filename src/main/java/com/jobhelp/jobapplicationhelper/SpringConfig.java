@@ -1,5 +1,8 @@
 package com.jobhelp.jobapplicationhelper;
 
+import com.jobhelp.jobapplicationhelper.data.JobApplicationDataAccessInterface;
+import com.jobhelp.jobapplicationhelper.data.JobApplicationDataService;
+import com.jobhelp.jobapplicationhelper.data.JobApplicationFakeDAO;
 import com.jobhelp.jobapplicationhelper.services.AccountService;
 import com.jobhelp.jobapplicationhelper.services.AccountServiceInterface;
 import com.jobhelp.jobapplicationhelper.services.JobApplicationService;
@@ -16,9 +19,14 @@ public class SpringConfig {
         return new AccountService();
     }
 
-    @RequestScope
     @Bean(name="jobApplicationService", initMethod = "init", destroyMethod = "destroy")
+    @RequestScope
     public JobApplicationServiceInterface getJobApplicationService() {
         return new JobApplicationService();
+    }
+
+    @Bean(name="jobApplicationDAO")
+    public JobApplicationDataAccessInterface getJobApplicationDataService() {
+        return new JobApplicationDataService();
     }
 }

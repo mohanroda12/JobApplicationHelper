@@ -34,7 +34,7 @@ public class JobApplicationRestController {
         return jobApplication.getByID(id);
     }
 
-    @GetMapping("/delete/{id}")
+    @DeleteMapping("/delete/{id}")
     public boolean deleteByID(@PathVariable long id) {
         return jobApplication.deleteOne(id);
     }
