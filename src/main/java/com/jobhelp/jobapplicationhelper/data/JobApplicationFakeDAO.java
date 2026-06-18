@@ -32,6 +32,7 @@ public class JobApplicationFakeDAO implements JobApplicationDataAccessInterface 
                 return application;
             }
         }
+        // No application by id found
         return null;
     }
 
@@ -61,12 +62,28 @@ public class JobApplicationFakeDAO implements JobApplicationDataAccessInterface 
     }
 
     @Override
-    public long deleteOne(long id) {
-        return 0;
+    public boolean deleteOne(long id) {
+
+        for(int i = 0; i < jobApplications.size(); i++) {
+            if(jobApplications.get(i).getId() == id) {
+                jobApplications.remove(i);
+                return true;
+            }
+        }
+        // No application by id found
+        return false;
     }
 
     @Override
     public JobApplication updateOne(long idToUpdate, JobApplication updatedApplication) {
+
+        for(int i = 0; i < jobApplications.size(); i++) {
+            if(jobApplications.get(i).getId() == idToUpdate) {
+                jobApplications.set(i, updatedApplication);
+                return jobApplications.get(i);
+            }
+        }
+        // No application by id found
         return null;
     }
 }

@@ -11,7 +11,7 @@ public interface JobApplicationServiceInterface {
     public List<JobApplication> searchByRole(String searchTerm);
 
     public long addOne(JobApplication newApplication);
-    public long deleteOne(long id);
+    public boolean deleteOne(long id);
     public JobApplication updateOne(long idToUpdate, JobApplication updatedApplication);
 
     public void init();

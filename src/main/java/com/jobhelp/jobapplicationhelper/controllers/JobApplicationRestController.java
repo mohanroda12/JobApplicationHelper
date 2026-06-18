@@ -29,4 +29,19 @@ public class JobApplicationRestController {
         return jobApplication.addOne(newApplication);
     }
 
+    @GetMapping("/{id}")
+    public JobApplication searchApplicationByID(@PathVariable long id) {
+        return jobApplication.getByID(id);
+    }
+
+    @GetMapping("/delete/{id}")
+    public boolean deleteByID(@PathVariable long id) {
+        return jobApplication.deleteOne(id);
+    }
+
+    @PutMapping("/update/{id}")
+    public JobApplication updateByID(@RequestBody JobApplication newApplication, @PathVariable long id) {
+        return jobApplication.updateOne(id, newApplication);
+    }
+
 }

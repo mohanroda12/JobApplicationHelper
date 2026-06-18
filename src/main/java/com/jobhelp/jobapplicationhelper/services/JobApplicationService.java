@@ -18,7 +18,7 @@ public class JobApplicationService implements  JobApplicationServiceInterface{
 
     @Override
     public JobApplication getByID(long id) {
-        return null;
+        return jobApplicationDAO.getByID(id);
     }
 
     @Override
@@ -32,13 +32,13 @@ public class JobApplicationService implements  JobApplicationServiceInterface{
     }
 
     @Override
-    public long deleteOne(long id) {
-        return 0;
+    public boolean deleteOne(long id) {
+        return jobApplicationDAO.deleteOne(id);
     }
 
     @Override
     public JobApplication updateOne(long idToUpdate, JobApplication updatedApplication) {
-        return null;
+        return jobApplicationDAO.updateOne(idToUpdate, updatedApplication);
     }
 
     @Override
