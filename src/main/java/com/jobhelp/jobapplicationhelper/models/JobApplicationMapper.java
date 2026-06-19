@@ -12,7 +12,7 @@ public class JobApplicationMapper implements RowMapper<JobApplication> {
         JobApplication jobApplication = new JobApplication(rs.getString("COMPANY"),
                 rs.getLong("ID"),
                 rs.getString("ROLE"),
-                ApplicationStatus.valueOf(rs.getString("APPLICATION_STATUS")));
+                ApplicationStatus.valueOf(rs.getString("APPLICATION_STATUS").toUpperCase()));
 
         return jobApplication;
     }
