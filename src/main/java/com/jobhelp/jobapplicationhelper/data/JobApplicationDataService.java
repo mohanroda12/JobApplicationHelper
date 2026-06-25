@@ -12,8 +12,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@Repository
-public class JobApplicationDataService implements JobApplicationDataAccessInterface{
+public class JobApplicationDataService implements JobApplicationDataAccessInterface<JobApplication>{
 
     // mysql connection details from application.properties
     @Autowired

@@ -1,21 +1,34 @@
 package com.jobhelp.jobapplicationhelper.models;
 
-public class JobApplication {
+import org.springframework.data.annotation.Id;
+import org.springframework.data.relational.core.mapping.Column;
+import org.springframework.data.relational.core.mapping.Table;
 
+@Table("JOB_APPLICATIONS")
+public class JobApplicationEntity {
+
+    @Id
+    @Column("ID")
     private Long id;
+
+    @Column("COMPANY")
     private String company;
+
+    @Column("ROLE")
     private String role;
+
+    @Column("APPLICATION_STATUS")
     private ApplicationStatus applicationStatus;
 
-    public JobApplication(String company, Long id, String role, ApplicationStatus applicationStatus) {
+    public JobApplicationEntity() {
+
+    }
+
+    public JobApplicationEntity(String company, Long id, String role, ApplicationStatus applicationStatus) {
         this.company = company;
         this.id = id;
         this.role = role;
         this.applicationStatus = applicationStatus;
-    }
-
-    public JobApplication() {
-
     }
 
     public Long getId() {

@@ -7,8 +7,7 @@ import org.springframework.stereotype.Repository;
 import java.util.ArrayList;
 import java.util.List;
 
-@Repository
-public class JobApplicationFakeDAO implements JobApplicationDataAccessInterface {
+public class JobApplicationFakeDAO implements JobApplicationDataAccessInterface<JobApplication> {
 
     private List<JobApplication> jobApplications = new ArrayList<>();
 

@@ -6,10 +6,10 @@ public enum ApplicationStatus {
     OFFER,
     REJECTION;
 
-    @Override
-    public String toString() {
-        String lower = name().toLowerCase();
-        // Make first character uppercase
-        return Character.toUpperCase(lower.charAt(0)) + lower.substring(1);
-    }
+//    @Override
+//    public String toString() {
+//        String lower = name().toLowerCase();
+//        // Make first character uppercase
+//        return Character.toUpperCase(lower.charAt(0)) + lower.substring(1);
+//    }
 }

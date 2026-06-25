@@ -9,7 +9,7 @@ import java.util.List;
 public class JobApplicationService implements  JobApplicationServiceInterface{
 
     @Autowired
-    JobApplicationDataAccessInterface jobApplicationDAO;
+    JobApplicationDataAccessInterface<JobApplication> jobApplicationDAO;
 
     @Override
     public List<JobApplication> getJobApplications() {
