@@ -18,17 +18,17 @@ public class JobApplicationEntity {
     private String role;
 
     @Column("APPLICATION_STATUS")
-    private ApplicationStatus applicationStatus;
+    private ApplicationStatus status;
 
     public JobApplicationEntity() {
 
     }
 
-    public JobApplicationEntity(String company, Long id, String role, ApplicationStatus applicationStatus) {
+    public JobApplicationEntity(String company, Long id, String role, ApplicationStatus status) {
         this.company = company;
         this.id = id;
         this.role = role;
-        this.applicationStatus = applicationStatus;
+        this.status = status;
     }
 
     public Long getId() {
@@ -56,11 +56,11 @@ public class JobApplicationEntity {
     }
 
     public ApplicationStatus getStatus() {
-        return applicationStatus;
+        return status;
     }
 
     public void setStatus(ApplicationStatus applicationStatus) {
-        this.applicationStatus = applicationStatus;
+        this.status = applicationStatus;
     }
 
     @Override
@@ -69,7 +69,7 @@ public class JobApplicationEntity {
                 "id=" + id +
                 ", company='" + company + '\'' +
                 ", role='" + role + '\'' +
-                ", status=" + applicationStatus +
+                ", status=" + status +
                 '}';
     }
 }

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" layout:decorate="~{layouts/defaultLayout}"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+    <title>Create Job Application</title>
+</head>
+<body>
+<div layout:fragment="content">
+    <form method="post" action="#" th:action="@{/applications/updateApplication}" th:object="${application}">
+        <h1>Edit job Application</h1>
+
+        <!--To add id to the object-->
+        <input type="hidden" th:field="*{id}">
+
+        <label for="company">Company</label>
+        <input type="text" th:field="*{company}" id="company" name="company">
+
+        <label for="role">Role</label>
+        <input type="text" th:field="*{role}" id="role" name="role">
+
+        <label for="status">Status</label>
+        <select th:field="*{status}" id="status" name="status">
+            <option th:each="status : ${statuses}" th:value="${status.name()}" th:text="${status.name().toLowerCase()}">
+        </select>
+
+        <button type="submit">Update</button>
+    </form>
+</div>
+</body>
+</html>

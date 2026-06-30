@@ -21,14 +21,36 @@
                 <th>Company</th>
                 <th>Role</th>
                 <th>Application status</th>
+                <th>Edit</th>
+                <th>Delete</th>
             </tr>
         </thead>
 
+        <!--Show application data-->
         <tbody>
-            <tr th:each="jobApplication : ${applications}">
-                <td th:text="${jobApplication.company}">Company</td>
-                <td th:text="${jobApplication.role}">Company</td>
-                <td th:text="${jobApplication.status}">Company</td>
+            <tr th:each="currentApplication : ${applications}">
+
+                <td th:text="${currentApplication.company}">Company</td>
+                <td th:text="${currentApplication.role}">Role</td>
+                <td th:text="${currentApplication.status}">Status</td>
+
+                <td>
+                    <!--Edit form-->
+                    <form action="#" method="post" th:action="@{/applications/edit}" th:object="${currentApplication}">
+                        <input name="id" type="hidden" th:value="${currentApplication.id}">
+                        <input name="company" type="hidden" th:value="${currentApplication.company}">
+                        <input name="role" type="hidden" th:value="${currentApplication.role}">
+                        <input name="status" type="hidden" th:value="${currentApplication.status}">
+                        <button type="submit" name="editApplication">Edit</button>
+                    </form>
+                </td>
+                <td>
+                    <!--Delete form-->
+                    <form action="#" method="post" th:action="@{/applications/delete}">
+                        <input id="id" name="id" type="hidden" th:value="${currentApplication.id}">
+                        <button type="submit" name="deleteApplication">Delete</button>
+                    </form>
+                </td>
             </tr>
         </tbody>
 

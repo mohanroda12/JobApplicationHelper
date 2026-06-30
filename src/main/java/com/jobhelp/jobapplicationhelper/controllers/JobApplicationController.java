@@ -12,6 +12,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
@@ -21,12 +22,12 @@ import java.util.List;
 public class JobApplicationController {
 
     @Autowired
-    JobApplicationServiceInterface jobApplication;
+    JobApplicationServiceInterface jobApplicationService;
 
     @GetMapping("")
     public String showAllApplications(Model model) {
 
-        List<JobApplication> applications = jobApplication.getJobApplications();
+        List<JobApplication> applications = jobApplicationService.getJobApplications();
         model.addAttribute("applications", applications);
         model.addAttribute("searchModel", new SearchModel());
 
@@ -43,9 +44,9 @@ public class JobApplicationController {
     }
 
     @PostMapping("/saveNew")
-    public String addNewApplication(@Valid JobApplication newApplication, BindingResult bindingResult, Model model) {
+    public String addNewApplication(@Valid JobApplication newApplication, BindingResult bindingResult) {
         newApplication.setId(null);
-        jobApplication.addOne(newApplication);
+        jobApplicationService.addOne(newApplication);
         return "redirect:/applications";
     }
 
@@ -55,10 +56,34 @@ public class JobApplicationController {
         String searchTerm = searchModel.getSearchTerm();
 
         //Filter by search term
-        List<JobApplication> applications = jobApplication.searchByRole(searchTerm);
+        List<JobApplication> applications = jobApplicationService.searchByRole(searchTerm);
         model.addAttribute("applications", applications);
 
         return "applications";
+    }
+
+    @PostMapping("/delete")
+    public String deleteApplication(@RequestParam Long id) {
+
+        jobApplicationService.deleteOne(id);
+
+        return "redirect:/applications";
+    }
+
+    @PostMapping("/edit")
+    public String editApplicationForm(@Valid JobApplication currentApplication, Model model) {
+
+        model.addAttribute("application", currentApplication);
+        model.addAttribute("statuses", ApplicationStatus.values());
+
+        return "editApplication";
+    }
+
+    @PostMapping("/updateApplication")
+    public String updateApplication(@Valid JobApplication application, BindingResult bindingResult) {
+
+        jobApplicationService.updateOne(application.getId(), application);
+        return "redirect:/applications";
     }
 }
 

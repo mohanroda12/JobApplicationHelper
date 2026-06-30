@@ -5,13 +5,13 @@ public class JobApplication {
     private Long id;
     private String company;
     private String role;
-    private ApplicationStatus applicationStatus;
+    private ApplicationStatus status;
 
-    public JobApplication(String company, Long id, String role, ApplicationStatus applicationStatus) {
+    public JobApplication(String company, Long id, String role, ApplicationStatus status) {
         this.company = company;
         this.id = id;
         this.role = role;
-        this.applicationStatus = applicationStatus;
+        this.status = status;
     }
 
     public JobApplication() {
@@ -43,11 +43,11 @@ public class JobApplication {
     }
 
     public ApplicationStatus getStatus() {
-        return applicationStatus;
+        return status;
     }
 
     public void setStatus(ApplicationStatus applicationStatus) {
-        this.applicationStatus = applicationStatus;
+        this.status = applicationStatus;
     }
 
     @Override
@@ -56,7 +56,7 @@ public class JobApplication {
                 "id=" + id +
                 ", company='" + company + '\'' +
                 ", role='" + role + '\'' +
-                ", status=" + applicationStatus +
+                ", status=" + status +
                 '}';
     }
 }
