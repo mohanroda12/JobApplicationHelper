@@ -1,5 +1,6 @@
-package com.jobhelp.jobapplicationhelper.models;
+package com.jobhelp.jobapplicationhelper.entities;
 
+import com.jobhelp.jobapplicationhelper.models.ApplicationStatus;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.relational.core.mapping.Column;
 import org.springframework.data.relational.core.mapping.Table;

@@ -1,7 +1,7 @@
 package com.jobhelp.jobapplicationhelper.data;
 
 import com.jobhelp.jobapplicationhelper.models.JobApplication;
-import com.jobhelp.jobapplicationhelper.models.JobApplicationEntity;
+import com.jobhelp.jobapplicationhelper.entities.JobApplicationEntity;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;

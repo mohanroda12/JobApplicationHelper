@@ -1,9 +1,7 @@
 package com.jobhelp.jobapplicationhelper;
 
 import com.jobhelp.jobapplicationhelper.data.JobApplicationDataAccessInterface;
-import com.jobhelp.jobapplicationhelper.data.JobApplicationDataService;
 import com.jobhelp.jobapplicationhelper.data.JobApplicationDataServiceForRepository;
-import com.jobhelp.jobapplicationhelper.data.JobApplicationFakeDAO;
 import com.jobhelp.jobapplicationhelper.services.AccountService;
 import com.jobhelp.jobapplicationhelper.services.AccountServiceInterface;
 import com.jobhelp.jobapplicationhelper.services.JobApplicationService;

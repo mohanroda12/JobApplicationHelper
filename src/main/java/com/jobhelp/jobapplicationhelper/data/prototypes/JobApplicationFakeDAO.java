@@ -1,8 +1,8 @@
-package com.jobhelp.jobapplicationhelper.data;
+package com.jobhelp.jobapplicationhelper.data.prototypes;
 
+import com.jobhelp.jobapplicationhelper.data.JobApplicationDataAccessInterface;
 import com.jobhelp.jobapplicationhelper.models.ApplicationStatus;
 import com.jobhelp.jobapplicationhelper.models.JobApplication;
-import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,7 +1,8 @@
-package com.jobhelp.jobapplicationhelper.data;
+package com.jobhelp.jobapplicationhelper.data.prototypes;
 
+import com.jobhelp.jobapplicationhelper.data.JobApplicationDataAccessInterface;
 import com.jobhelp.jobapplicationhelper.models.JobApplication;
-import com.jobhelp.jobapplicationhelper.models.JobApplicationMapper;
+import com.jobhelp.jobapplicationhelper.mapper.JobApplicationMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.simple.SimpleJdbcInsert;
@@ -11,7 +12,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class JobApplicationDataService implements JobApplicationDataAccessInterface<JobApplication>{
+public class JobApplicationDataService implements JobApplicationDataAccessInterface<JobApplication> {
 
     // mysql connection details from application.properties
     @Autowired

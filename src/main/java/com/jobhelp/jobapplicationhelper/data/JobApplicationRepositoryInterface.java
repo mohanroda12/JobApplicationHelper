@@ -1,7 +1,6 @@
 package com.jobhelp.jobapplicationhelper.data;
 
-import com.jobhelp.jobapplicationhelper.models.JobApplication;
-import com.jobhelp.jobapplicationhelper.models.JobApplicationEntity;
+import com.jobhelp.jobapplicationhelper.entities.JobApplicationEntity;
 import org.springframework.data.repository.CrudRepository;
 
 import java.util.List;

@@ -1,5 +1,7 @@
-package com.jobhelp.jobapplicationhelper.models;
+package com.jobhelp.jobapplicationhelper.mapper;
 
+import com.jobhelp.jobapplicationhelper.models.ApplicationStatus;
+import com.jobhelp.jobapplicationhelper.models.JobApplication;
 import org.springframework.jdbc.core.RowMapper;
 
 import java.sql.ResultSet;

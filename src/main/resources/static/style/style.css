@@ -1,6 +1,7 @@
 :root {
     --dark-grey: #272727;
     --grey: #404040;
+    --light-grey: #a5a4a4;
     --cream: #d8c3ab;
     --white: floralwhite;
     --orange: #d85f14;
@@ -123,6 +124,19 @@ a:link {
 }
 
 .home-link:hover {
+    border-radius: 15px;
+    background-color: var(--grey);
+}
+
+.header-button {
+    display: inline-block;
+    color: var(--light-grey);
+    font-weight: 400;
+    font-size: 20px;
+    padding: 10px;
+}
+
+.header-button:hover {
     border-radius: 15px;
     background-color: var(--grey);
 }
