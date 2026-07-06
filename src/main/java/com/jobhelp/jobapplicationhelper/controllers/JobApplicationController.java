@@ -39,13 +39,14 @@ public class JobApplicationController {
 
         model.addAttribute("application", new JobApplication());
         model.addAttribute("statuses", ApplicationStatus.values());
+        model.addAttribute("currentAccountID", 1);
 
         return "addNewApplication";
     }
 
     @PostMapping("/saveNew")
     public String addNewApplication(@Valid JobApplication newApplication, BindingResult bindingResult) {
-        newApplication.setId(null);
+        newApplication.setApplicationID(null);
         jobApplicationService.addOne(newApplication);
         return "redirect:/applications";
     }
@@ -63,9 +64,9 @@ public class JobApplicationController {
     }
 
     @PostMapping("/delete")
-    public String deleteApplication(@RequestParam Long id) {
+    public String deleteApplication(@RequestParam Long applicationID) {
 
-        jobApplicationService.deleteOne(id);
+        jobApplicationService.deleteOne(applicationID);
 
         return "redirect:/applications";
     }
@@ -82,7 +83,7 @@ public class JobApplicationController {
     @PostMapping("/updateApplication")
     public String updateApplication(@Valid JobApplication application, BindingResult bindingResult) {
 
-        jobApplicationService.updateOne(application.getId(), application);
+        jobApplicationService.updateOne(application.getApplicationID(), application);
         return "redirect:/applications";
     }
 }

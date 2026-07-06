@@ -31,7 +31,7 @@ public class JobApplicationRestController {
 
     @GetMapping("/{id}")
     public JobApplication searchApplicationByID(@PathVariable long id) {
-        return jobApplication.getByID(id);
+        return jobApplication.getByApplicationID(id);
     }
 
     @DeleteMapping("/delete/{id}")

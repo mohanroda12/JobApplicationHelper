@@ -12,10 +12,10 @@ public class JobApplicationFakeDAO implements JobApplicationDataAccessInterface<
     private List<JobApplication> jobApplications = new ArrayList<>();
 
     public JobApplicationFakeDAO() {
-        jobApplications.add(new JobApplication("Google", 1L, "Developer", ApplicationStatus.APPLIED));
-        jobApplications.add(new JobApplication("Ferrari", 2L, "Engineer", ApplicationStatus.OFFER));
-        jobApplications.add(new JobApplication("Gym group", 3L, "Personal trainer", ApplicationStatus.REJECTION));
-        jobApplications.add(new JobApplication("Amazon", 4L, "Delivery driver", ApplicationStatus.INTERVIEW));
+        jobApplications.add(new JobApplication(1L, 1L, "Google", "Developer", ApplicationStatus.APPLIED));
+        jobApplications.add(new JobApplication(2L, 2L, "Ferrari", "Engineer", ApplicationStatus.OFFER));
+        jobApplications.add(new JobApplication(3L, 3L, "Gym group", "Personal trainer", ApplicationStatus.REJECTION));
+        jobApplications.add(new JobApplication(4L, 4L, "Amazon", "Delivery driver", ApplicationStatus.INTERVIEW));
     }
 
     @Override
@@ -24,10 +24,10 @@ public class JobApplicationFakeDAO implements JobApplicationDataAccessInterface<
     }
 
     @Override
-    public JobApplication getByID(long id) {
+    public JobApplication getByApplicationID(long id) {
 
         for(JobApplication application : jobApplications) {
-            if(application.getId() == id) {
+            if(application.getApplicationID() == id) {
                 return application;
             }
         }
@@ -64,7 +64,7 @@ public class JobApplicationFakeDAO implements JobApplicationDataAccessInterface<
     public boolean deleteOne(long id) {
 
         for(int i = 0; i < jobApplications.size(); i++) {
-            if(jobApplications.get(i).getId() == id) {
+            if(jobApplications.get(i).getApplicationID() == id) {
                 jobApplications.remove(i);
                 return true;
             }
@@ -77,7 +77,7 @@ public class JobApplicationFakeDAO implements JobApplicationDataAccessInterface<
     public JobApplication updateOne(long idToUpdate, JobApplication updatedApplication) {
 
         for(int i = 0; i < jobApplications.size(); i++) {
-            if(jobApplications.get(i).getId() == idToUpdate) {
+            if(jobApplications.get(i).getApplicationID() == idToUpdate) {
                 jobApplications.set(i, updatedApplication);
                 return jobApplications.get(i);
             }

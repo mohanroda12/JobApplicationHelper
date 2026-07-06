@@ -2,14 +2,16 @@ package com.jobhelp.jobapplicationhelper.models;
 
 public class JobApplication {
 
-    private Long id;
+    private Long accountID;
+    private Long applicationID;
     private String company;
     private String role;
     private ApplicationStatus status;
 
-    public JobApplication(String company, Long id, String role, ApplicationStatus status) {
+    public JobApplication(Long applicationID, Long accountID, String company, String role, ApplicationStatus status) {
         this.company = company;
-        this.id = id;
+        this.applicationID = applicationID;
+        this.accountID = accountID;
         this.role = role;
         this.status = status;
     }
@@ -18,12 +20,20 @@ public class JobApplication {
 
     }
 
-    public Long getId() {
-        return id;
+    public Long getAccountID() {
+        return accountID;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setAccountID(Long accountID) {
+        this.accountID = accountID;
+    }
+
+    public Long getApplicationID() {
+        return applicationID;
+    }
+
+    public void setApplicationID(Long id) {
+        this.applicationID = id;
     }
 
     public String getCompany() {
@@ -53,10 +63,11 @@ public class JobApplication {
     @Override
     public String toString() {
         return "ApplicationModel{" +
-                "id=" + id +
+                "applicationID=" + applicationID +
                 ", company='" + company + '\'' +
                 ", role='" + role + '\'' +
                 ", status=" + status +
                 '}';
     }
+
 }

@@ -11,10 +11,11 @@ public class JobApplicationMapper implements RowMapper<JobApplication> {
     @Override
     public JobApplication mapRow(ResultSet rs, int rowNum) throws SQLException {
 
-        JobApplication jobApplication = new JobApplication(rs.getString("COMPANY"),
-                rs.getLong("ID"),
-                rs.getString("ROLE"),
-                ApplicationStatus.valueOf(rs.getString("APPLICATION_STATUS").toUpperCase()));
+        JobApplication jobApplication = new JobApplication(rs.getLong("application_id"),
+                rs.getLong("account_id"),
+                rs.getString("company"),
+                rs.getString("role"),
+                ApplicationStatus.valueOf(rs.getString("status").toUpperCase()));
 
         return jobApplication;
     }

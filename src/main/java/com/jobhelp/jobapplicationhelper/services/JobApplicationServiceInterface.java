@@ -7,7 +7,7 @@ import java.util.List;
 public interface JobApplicationServiceInterface {
 
     public List<JobApplication> getJobApplications();
-    public JobApplication getByID(long id);
+    public JobApplication getByApplicationID(long id);
     public List<JobApplication> searchByRole(String searchTerm);
 
     public long addOne(JobApplication newApplication);

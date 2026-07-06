@@ -27,7 +27,7 @@ public class JobApplicationDataService implements JobApplicationDataAccessInterf
     }
 
     @Override
-    public JobApplication getByID(long id) {
+    public JobApplication getByApplicationID(long id) {
         List<JobApplication> results = jdbcTemplate.query("SELECT * FROM JOB_APPLICATIONS WHERE ID = ?", new JobApplicationMapper(), id);
         if(!results.isEmpty()) {
             return results.getFirst();

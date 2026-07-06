@@ -11,11 +11,11 @@
             <h1>Login</h1>
 
             <label for="email">Email</label>
-            <input th:field = "*{email}" type="text" id="email" name="email">
+            <input th:field = "*{email}" type="text" applicationID="email" name="email">
             <p class="login-alert" th:if="${#fields.hasErrors('email')}" th:text="${#fields.errors('email')[0]}"></p>
 
             <label for="password">Password</label>
-            <input th:field = "*{password}" type="password" id="password" name="password">
+            <input th:field = "*{password}" type="password" applicationID="password" name="password">
             <p class="login-alert" th:if="${#fields.hasErrors('password')}" th:text="${#fields.errors('password')[0]}"></p>
 
             <input type="submit" value="Login" class="login-button">

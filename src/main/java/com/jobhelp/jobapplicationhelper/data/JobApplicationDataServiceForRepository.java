@@ -39,7 +39,7 @@ public class JobApplicationDataServiceForRepository implements JobApplicationDat
 
 
     @Override
-    public JobApplication getByID(long id) {
+    public JobApplication getByApplicationID(long id) {
         // Get job application entity
         JobApplicationEntity applicationEntity = jobApplicationRepository.findById(id).orElse(null);
 
@@ -65,16 +65,18 @@ public class JobApplicationDataServiceForRepository implements JobApplicationDat
     @Override
     public long addOne(JobApplication newApplication) {
 
+        System.out.println("ACCOUNT ID" + newApplication.getAccountID());
+
         JobApplicationEntity entity = modelMapper.map(newApplication, JobApplicationEntity.class);
         // So that application doesn't attempt to update
-        entity.setId(null);
+        entity.setApplicationID(null);
         JobApplicationEntity result = jobApplicationRepository.save(entity);
 
         if(result == null) {
             return 0;
         }
         else {
-            return result.getId();
+            return result.getApplicationID();
         }
     }
 

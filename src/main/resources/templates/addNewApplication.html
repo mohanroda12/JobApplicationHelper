@@ -15,6 +15,8 @@
     <label for="role">Role</label>
     <input type="text" th:field="*{role}" id="role" name="role">
 
+    <input type="hidden" name="accountID" th:value="${currentAccountID}">
+
     <label for="status">Status</label>
     <select th:field="*{status}" id="status" name="status">
       <option th:each="status : ${statuses}" th:value="${status.name()}" th:text="${status.name().toLowerCase()}">

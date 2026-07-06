@@ -37,7 +37,8 @@
                 <td>
                     <!--Edit form-->
                     <form action="#" method="post" th:action="@{/applications/edit}" th:object="${currentApplication}">
-                        <input name="id" type="hidden" th:value="${currentApplication.id}">
+                        <input name="applicationID" type="hidden" th:value="${currentApplication.applicationID}">
+                        <input name="accountID" type="hidden" th:value="${currentApplication.accountID}">
                         <input name="company" type="hidden" th:value="${currentApplication.company}">
                         <input name="role" type="hidden" th:value="${currentApplication.role}">
                         <input name="status" type="hidden" th:value="${currentApplication.status}">
@@ -47,7 +48,7 @@
                 <td>
                     <!--Delete form-->
                     <form action="#" method="post" th:action="@{/applications/delete}">
-                        <input id="id" name="id" type="hidden" th:value="${currentApplication.id}">
+                        <input applicationID="applicationID" name="applicationID" type="hidden" th:value="${currentApplication.applicationID}">
                         <button type="submit" name="deleteApplication">Delete</button>
                     </form>
                 </td>

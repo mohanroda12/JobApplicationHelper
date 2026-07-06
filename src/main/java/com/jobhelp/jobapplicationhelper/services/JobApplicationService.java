@@ -17,8 +17,8 @@ public class JobApplicationService implements  JobApplicationServiceInterface{
     }
 
     @Override
-    public JobApplication getByID(long id) {
-        return jobApplicationDAO.getByID(id);
+    public JobApplication getByApplicationID(long id) {
+        return jobApplicationDAO.getByApplicationID(id);
     }
 
     @Override

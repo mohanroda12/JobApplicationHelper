@@ -5,39 +5,51 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.relational.core.mapping.Column;
 import org.springframework.data.relational.core.mapping.Table;
 
-@Table("JOB_APPLICATIONS")
+@Table("job_applications")
 public class JobApplicationEntity {
 
     @Id
-    @Column("ID")
-    private Long id;
+    @Column("application_id")
+    private Long applicationID;
 
-    @Column("COMPANY")
+    @Column("account_id")
+    private Long accountID;
+
+    @Column("company")
     private String company;
 
-    @Column("ROLE")
+    @Column("role")
     private String role;
 
-    @Column("APPLICATION_STATUS")
+    @Column("status")
     private ApplicationStatus status;
 
     public JobApplicationEntity() {
 
     }
 
-    public JobApplicationEntity(String company, Long id, String role, ApplicationStatus status) {
+    public JobApplicationEntity(Long applicationID, Long accountID, String company, String role, ApplicationStatus status) {
         this.company = company;
-        this.id = id;
+        this.applicationID = applicationID;
+        this.accountID = accountID;
         this.role = role;
         this.status = status;
     }
 
-    public Long getId() {
-        return id;
+    public Long getApplicationID() {
+        return applicationID;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setApplicationID(Long applicationID) {
+        this.applicationID = applicationID;
+    }
+
+    public Long getAccountID() {
+        return accountID;
+    }
+
+    public void setAccountID(Long accountID) {
+        this.accountID = accountID;
     }
 
     public String getCompany() {
@@ -67,7 +79,7 @@ public class JobApplicationEntity {
     @Override
     public String toString() {
         return "ApplicationModel{" +
-                "id=" + id +
+                "applicationID=" + applicationID +
                 ", company='" + company + '\'' +
                 ", role='" + role + '\'' +
                 ", status=" + status +

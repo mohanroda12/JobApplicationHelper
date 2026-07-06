@@ -9,8 +9,9 @@
     <form method="post" action="#" th:action="@{/applications/updateApplication}" th:object="${application}">
         <h1>Edit job Application</h1>
 
-        <!--To add id to the object-->
-        <input type="hidden" th:field="*{id}">
+        <!--To add applicationID and accountID to the object-->
+        <input type="hidden" th:field="*{applicationID}">
+        <input type="hidden" th:field="*{accountID}">
 
         <label for="company">Company</label>
         <input type="text" th:field="*{company}" id="company" name="company">
