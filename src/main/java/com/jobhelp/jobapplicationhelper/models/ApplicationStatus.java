@@ -1,10 +1,21 @@
 package com.jobhelp.jobapplicationhelper.models;
 
 public enum ApplicationStatus {
-    APPLIED,
-    INTERVIEW,
-    OFFER,
-    REJECTION;
+    APPLIED("Applied"),
+    INTERVIEW("Interview"),
+    OFFER("Offer"),
+    REJECTION("Rejection");
+
+    private final String displayName;
+
+    ApplicationStatus(String displayName) {
+        this.displayName = displayName;
+    }
+
+    public String getDisplayName() {
+        return displayName;
+    }
+
 
 //    @Override
 //    public String toString() {

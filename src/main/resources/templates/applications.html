@@ -5,17 +5,17 @@
     <title>Applications</title>
 </head>
 <body>
-<div layout:fragment="content">
+<div class="applications-container" layout:fragment="content">
 
+    <!--Search form-->
     <form method="post" action="#" th:action="@{/applications/search/role}" th:object="${searchModel}">
-
         <label for="searchInput">Role</label>
         <input type="text" th:field="*{searchTerm}"  id="searchInput" name="searchInput" placeholder="search by role...">
         <button type="submit">Search</button>
     </form>
 
+    <!--Table listing job applications-->
     <table>
-
         <thead>
             <tr>
                 <th>Company</th>
@@ -32,7 +32,7 @@
 
                 <td th:text="${currentApplication.company}">Company</td>
                 <td th:text="${currentApplication.role}">Role</td>
-                <td th:text="${currentApplication.status}">Status</td>
+                <td th:text="${currentApplication.status.displayName}">Status</td>
 
                 <td>
                     <!--Edit form-->
