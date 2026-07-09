@@ -24,6 +24,8 @@
 }
 
 .nav-left {
+    display: flex;
+    align-items: center;
     gap: 10px;
 }
 
@@ -37,10 +39,6 @@
     width: 36px;
     aspect-ratio: 1;
     line-height: 1;
-    border-radius: 50%;
-}
-
-.plus-button:hover {
     border-radius: 50%;
 }
 

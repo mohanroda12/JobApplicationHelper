@@ -6,6 +6,7 @@
     --white: floralwhite;
     --orange: #d85f14;
     --header-orange: #e4894f;
+    --hover-orange: #e69764;
     --light-orange: #eaae86;
 }
 
@@ -105,9 +106,10 @@ a:link {
     align-items: center;
 }
 
-table, th, td {
-    border: 3px solid white;
+table {
     border-collapse: collapse;
+    border-radius: 20px;
+    overflow: hidden;
 }
 
 th, td {
@@ -120,4 +122,21 @@ td {
 
 th {
     background-color: var(--header-orange);
+}
+
+.table-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-color: Transparent;
+    border: none;
+    cursor: pointer;
+    padding: 1px 1px;
+    border-radius: 40%;
+}
+
+.table-btn:hover {
+    text-decoration: underline;
+    text-decoration-color: white;
 }

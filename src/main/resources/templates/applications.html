@@ -9,9 +9,10 @@
 
     <!--Search form-->
     <form method="post" action="#" th:action="@{/applications/search/role}" th:object="${searchModel}">
-        <label for="searchInput">Role</label>
-        <input type="text" th:field="*{searchTerm}"  id="searchInput" name="searchInput" placeholder="search by role...">
-        <button type="submit">Search</button>
+        <input type="text" th:field="*{searchTerm}" name="searchInput" placeholder="Search by Role...">
+        <button type="submit">
+            <span class="material-symbols-rounded">search</span>
+        </button>
     </form>
 
     <!--Table listing job applications-->
@@ -20,9 +21,9 @@
             <tr>
                 <th>Company</th>
                 <th>Role</th>
-                <th>Application status</th>
-                <th>Edit</th>
-                <th>Delete</th>
+                <th>Status</th>
+                <th></th>
+                <th></th>
             </tr>
         </thead>
 
@@ -42,14 +43,18 @@
                         <input name="company" type="hidden" th:value="${currentApplication.company}">
                         <input name="role" type="hidden" th:value="${currentApplication.role}">
                         <input name="status" type="hidden" th:value="${currentApplication.status}">
-                        <button type="submit" name="editApplication">Edit</button>
+                        <button type="submit" class="table-btn" name="editApplication">
+                            <span class="material-symbols-rounded">edit</span>
+                        </button>
                     </form>
                 </td>
                 <td>
                     <!--Delete form-->
                     <form action="#" method="post" th:action="@{/applications/delete}">
-                        <input applicationID="applicationID" name="applicationID" type="hidden" th:value="${currentApplication.applicationID}">
-                        <button type="submit" name="deleteApplication">Delete</button>
+                        <input id="applicationID" name="applicationID" type="hidden" th:value="${currentApplication.applicationID}">
+                        <button type="submit" class="table-btn" name="deleteApplication">
+                            <span class="material-symbols-rounded">delete</span>
+                        </button>
                     </form>
                 </td>
             </tr>
