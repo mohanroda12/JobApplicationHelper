@@ -2,6 +2,7 @@
     --dark-grey: #272727;
     --grey: #404040;
     --light-grey: #a5a4a4;
+    --dark-white: #e8e8e8;
     --cream: #d8c3ab;
     --white: floralwhite;
     --orange: #d85f14;
@@ -69,7 +70,7 @@ a:link {
     font-size: 14px;
 }
 
-.login-form input[type="password"], input[type="email"], input[type="text"] {
+.login-form input[type="password"], .login-form input[type="email"], .login-form input[type="text"] {
     border-radius: 6px;
     border: 1px solid;
     font-size: 20px;
@@ -104,6 +105,7 @@ a:link {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    gap: 25px;
 }
 
 table {
@@ -118,6 +120,24 @@ th, td {
 
 td {
     background-color: var(--light-orange);
+    text-align: center;
+}
+
+/*Setting table dimensions*/
+table td:nth-child(1), table th:nth-child(1) {
+    min-width: 100px;
+}
+
+table td:nth-child(2), table th:nth-child(2) {
+    min-width: 100px;
+}
+
+table td:nth-child(3), table th:nth-child(3) {
+    min-width: 100px;
+}
+
+table th:nth-child(4) {
+    min-width: 94px;
 }
 
 th {
@@ -130,13 +150,54 @@ th {
     justify-content: center;
 
     background-color: Transparent;
+    color: black;
     border: none;
     cursor: pointer;
-    padding: 1px 1px;
-    border-radius: 40%;
+    padding: 5px 5px;
 }
 
 .table-btn:hover {
     text-decoration: underline;
     text-decoration-color: white;
+}
+
+.search-form {
+    display: flex;
+    margin-top: 25px;
+    justify-content: center;
+    gap: 4px;
+}
+
+input.search-box {
+    border: none;
+    background-color: var(--dark-grey);
+    border-radius: 25px;
+    color: white;
+    font-weight: 550;
+    padding-left: 10px;
+}
+
+input.search-box:hover {
+    box-shadow: 0 0 0 3px var(--light-orange);
+    transition: 0.2s ease
+}
+
+input.search-box:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px var(--light-orange);
+}
+
+.search-button {
+    border: none;
+    outline: none;
+    background-color: transparent;
+    width: 40px;
+    aspect-ratio: 1;
+    border-radius: 50%;
+}
+
+.search-button:hover {
+    background-color: var(--dark-white);
+    cursor: pointer;
+    transition: 0.2s ease
 }

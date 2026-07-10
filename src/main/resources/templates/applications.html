@@ -8,9 +8,9 @@
 <div class="applications-container" layout:fragment="content">
 
     <!--Search form-->
-    <form method="post" action="#" th:action="@{/applications/search/role}" th:object="${searchModel}">
-        <input type="text" th:field="*{searchTerm}" name="searchInput" placeholder="Search by Role...">
-        <button type="submit">
+    <form method="post" class="search-form" action="#" th:action="@{/applications/search/role}" th:object="${searchModel}">
+        <input class="search-box" type="text" th:field="*{searchTerm}" name="searchInput" placeholder="Search by Role...">
+        <button type="submit" class="search-button">
             <span class="material-symbols-rounded">search</span>
         </button>
     </form>
@@ -22,8 +22,11 @@
                 <th>Company</th>
                 <th>Role</th>
                 <th>Status</th>
-                <th></th>
-                <th></th>
+                <th colspan="2">
+                    <a class="table-btn" href="/applications/addNew">
+                        <span class="material-symbols-rounded">add</span>
+                    </a>
+                </th>
             </tr>
         </thead>
 
