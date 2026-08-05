@@ -1,26 +1,24 @@
 package com.jobhelp.jobapplicationhelper.models;
 
-public class Account {
+public class User {
 
     // attributes
     private int id;
     private String name;
     private String email;
-    private boolean loggedIn;
 
-    public Account(int id, String name, String email, boolean loggedIn) {
+    public User(int id, String name, String email) {
         this.id = id;
         this.name = name;
         this.email = email;
-        this.loggedIn = loggedIn;
     }
 
     // getters and setters
-    public String getName() {
+    public String getUsername() {
         return name;
     }
 
-    public void setName(String name) {
+    public void setUsername(String name) {
         this.name = name;
     }
 
@@ -38,14 +36,6 @@ public class Account {
 
     public void setId(int id) {
         this.id = id;
-    }
-
-    public boolean isLoggedIn() {
-        return loggedIn;
-    }
-
-    public void setLoggedIn(boolean loggedIn) {
-        this.loggedIn = loggedIn;
     }
 
     @Override
