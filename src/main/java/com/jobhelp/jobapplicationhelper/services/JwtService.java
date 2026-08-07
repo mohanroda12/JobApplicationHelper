@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import javax.crypto.SecretKey;
 import java.util.Date;
 
+// Service class for login session
 @Service
 public class JwtService {
 
@@ -19,6 +20,7 @@ public class JwtService {
     @Value("${security.jwt.expiration-time}")
     private Long jwtExpiration;
 
+    // Make sure same secret key is used throughout session
     private SecretKey signingKey() {
         return Keys.hmacShaKeyFor(Decoders.BASE64.decode(secretKey));
     }
