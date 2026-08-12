@@ -1,6 +1,9 @@
 package com.jobhelp.jobapplicationhelper.entities;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.Size;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
@@ -17,12 +20,16 @@ public class UserEntity implements UserDetails {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
+    @Size(min=2, max=15, message="Name must be between 2 and 15 characters")
     @Column(unique = true, nullable = false)
     private String name;
 
+    @NotEmpty(message="Please enter an email")
+    @Email(message="Please enter a valid email e.g. example@email.com")
     @Column(unique = true, nullable = false)
     private String email;
 
+    @Size(min=8, message="Password must be at least 8 characters")
     @Column(nullable = false)
     private String password;
 

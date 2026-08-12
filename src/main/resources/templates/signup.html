@@ -7,19 +7,19 @@
 <body>
 
 <div class="login-box" layout:fragment="content">
-    <form class="login-form" action="#" method="post" th:action="@{signup}" th:object="${signupModel}">
+    <form class="login-form" action="#" method="post" th:action="@{/signup}" th:object="${user}">
         <h1>Sign Up</h1>
 
         <label for="name">Name</label>
-        <input th:field = "*{name}" type="text" applicationID="name" name="name">
+        <input th:field = "*{name}" type="text" id="name" name="name">
         <p class="login-alert" th:if="${#fields.hasErrors('name')}" th:text="${#fields.errors('name')[0]}"></p>
 
         <label for="email">Email</label>
-        <input th:field = "*{email}" type="text" applicationID="email" name="email">
+        <input th:field = "*{email}" type="email" id="email" name="email">
         <p class="login-alert" th:if="${#fields.hasErrors('email')}" th:text="${#fields.errors('email')[0]}"></p>
 
         <label for="password">Password</label>
-        <input th:field = "*{password}" type="password" applicationID="password" name="password">
+        <input th:field = "*{password}" type="password" id="password" name="password">
         <p class="login-alert" th:if="${#fields.hasErrors('password')}" th:text="${#fields.errors('password')[0]}"></p>
 
         <input type="submit" value="Sign Up" class="login-button">
