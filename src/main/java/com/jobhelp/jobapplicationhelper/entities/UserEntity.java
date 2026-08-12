@@ -15,7 +15,7 @@ public class UserEntity implements UserDetails {
     // attributes
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int id;
+    private Long id;
 
     @Column(unique = true, nullable = false)
     private String name;
@@ -27,7 +27,7 @@ public class UserEntity implements UserDetails {
     private String password;
 
     @Column
-    private boolean enabled;
+    private boolean enabled = true;
 
     public UserEntity(String password, String name, String email) {
         this.name = name;
@@ -40,27 +40,11 @@ public class UserEntity implements UserDetails {
     }
 
     // getters and setters
-    public String getUsername() {
-        return name;
-    }
-
-    public void setUsername(String name) {
-        this.name = name;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -72,12 +56,25 @@ public class UserEntity implements UserDetails {
         return password;
     }
 
-    public void setEnabled(boolean enabled) {
-        this.enabled = enabled;
+    public String getName() {
+        return name;
     }
 
-    public boolean getEnabled() {
-        return enabled;
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    @Override
+    public String getUsername() {
+        return email;
     }
 
     @Override

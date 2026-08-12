@@ -7,17 +7,16 @@
 <body>
 
     <div class="login-box" layout:fragment="content">
-        <form class="login-form" action="#" method="post" th:action="@{login}" th:object="${loginModel}">
+        <form class="login-form" action="#" method="post" th:action="@{/login}">
             <h1>Login</h1>
 
             <label for="email">Email</label>
-            <input th:field = "*{email}" type="text" applicationID="email" name="email">
-            <p class="login-alert" th:if="${#fields.hasErrors('email')}" th:text="${#fields.errors('email')[0]}"></p>
+            <input type="text" id="email" name="username">
 
             <label for="password">Password</label>
-            <input th:field = "*{password}" type="password" applicationID="password" name="password">
-            <p class="login-alert" th:if="${#fields.hasErrors('password')}" th:text="${#fields.errors('password')[0]}"></p>
+            <input type="password" id="password" name="password">
 
+            <p class="login-alert" th:if="${param.error}">Invalid email or password</p>
             <input type="submit" value="Login" class="login-button">
             <a href="">Forgot password</a>
         </form>
