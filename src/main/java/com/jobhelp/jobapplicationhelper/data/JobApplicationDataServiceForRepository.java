@@ -10,6 +10,11 @@ import javax.sql.DataSource;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Class links database table for job applications to a job application model.
+ * Maps between JobApplicationEntity (database version) and JobApplication (model)
+ * It interacts with data from the database using jobApplicationRepository to complete CREATE, READ, UPDATE and WRITE operations
+ */
 public class JobApplicationDataServiceForRepository implements JobApplicationDataAccessInterface<JobApplication> {
 
     @Autowired
@@ -51,8 +56,20 @@ public class JobApplicationDataServiceForRepository implements JobApplicationDat
     }
 
     @Override
-    public List<JobApplication> searchByRole(String searchTerm) {
-        Iterable<JobApplicationEntity> entities = jobApplicationRepository.findByRoleContainingIgnoreCase(searchTerm);
+    public List<JobApplication> getByAccountID(long accountID) {
+
+        Iterable<JobApplicationEntity> applicationEntity = jobApplicationRepository.findByAccountID(accountID);
+        List<JobApplication> applications = new ArrayList<>();
+
+        for(JobApplicationEntity entity : applicationEntity) {
+            applications.add(modelMapper.map(entity, JobApplication.class));
+        }
+        return applications;
+    }
+
+    @Override
+    public List<JobApplication> searchByRole(String searchTerm, long accountID) {
+        Iterable<JobApplicationEntity> entities = jobApplicationRepository.findByRoleContainingIgnoreCaseAndAccountID(searchTerm, accountID);
         List<JobApplication> applications = new ArrayList<>();
 
         for(JobApplicationEntity entity: entities) {
@@ -65,12 +82,12 @@ public class JobApplicationDataServiceForRepository implements JobApplicationDat
     @Override
     public long addOne(JobApplication newApplication) {
 
-        System.out.println("ACCOUNT ID" + newApplication.getAccountID());
-
         JobApplicationEntity entity = modelMapper.map(newApplication, JobApplicationEntity.class);
+
         // So that application doesn't attempt to update
         entity.setApplicationID(null);
         JobApplicationEntity result = jobApplicationRepository.save(entity);
+        System.out.println("SAVED STATUS: " + result.getStatus());
 
         if(result == null) {
             return 0;

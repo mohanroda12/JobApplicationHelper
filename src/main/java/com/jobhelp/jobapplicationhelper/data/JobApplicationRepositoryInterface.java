@@ -6,5 +6,6 @@ import org.springframework.data.repository.CrudRepository;
 import java.util.List;
 
 public interface JobApplicationRepositoryInterface extends CrudRepository<JobApplicationEntity, Long> {
-    List<JobApplicationEntity> findByRoleContainingIgnoreCase(String searchTerm);
+    List<JobApplicationEntity> findByRoleContainingIgnoreCaseAndAccountID(String searchTerm, long accountID);
+    List<JobApplicationEntity> findByAccountID(Long accountID);
 }

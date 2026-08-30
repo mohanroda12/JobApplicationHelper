@@ -6,8 +6,10 @@
 </head>
 <body>
 <div layout:fragment="content">
-  <form method="post" action="#" th:action="@{/applications/saveNew}" th:object="${application}">
+  <form method="post" action="#" th:action="@{/applications/saveNew}" th:object="${jobApplication}">
     <h1>Add New Job Application</h1>
+
+    <input type="hidden" name="accountID" th:value="*{accountID}">
 
     <label for="company">Company</label>
     <input type="text" th:field="*{company}" id="company" name="company">
@@ -15,7 +17,6 @@
     <label for="role">Role</label>
     <input type="text" th:field="*{role}" id="role" name="role">
 
-    <input type="hidden" name="accountID" th:value="${currentAccountID}">
 
     <label for="status">Status</label>
     <select th:field="*{status}" id="status" name="status">

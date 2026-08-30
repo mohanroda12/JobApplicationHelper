@@ -1,4 +1,4 @@
-package com.jobhelp.jobapplicationhelper;
+package com.jobhelp.jobapplicationhelper.config;
 
 import com.jobhelp.jobapplicationhelper.data.JobApplicationDataAccessInterface;
 import com.jobhelp.jobapplicationhelper.data.JobApplicationDataServiceForRepository;
