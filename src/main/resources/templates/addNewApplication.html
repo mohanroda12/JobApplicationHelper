@@ -10,6 +10,7 @@
     <h1>Add New Job Application</h1>
 
     <input type="hidden" name="accountID" th:value="*{accountID}">
+    <input type="hidden" name="dateApplied" th:value="${T(java.time.LocalDate).now()}">
 
     <label for="company">Company</label>
     <input type="text" th:field="*{company}" id="company" name="company">
@@ -22,6 +23,9 @@
     <select th:field="*{status}" id="status" name="status">
       <option th:each="status : ${statuses}" th:value="${status.name()}" th:text="${status.name().toLowerCase()}">
     </select>
+
+    <label for="location">Location</label>
+    <input type="text" th:field="*{location}" id="location" name="location">
 
     <button type="submit">Create</button>
   </form>

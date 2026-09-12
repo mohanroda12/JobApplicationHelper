@@ -6,7 +6,7 @@
 </head>
 <body>
 <div layout:fragment="content">
-    <form method="post" action="#" th:action="@{/applications/updateApplication}" th:object="${application}">
+    <form method="post" action="#" th:action="@{/applications/updateApplication}" th:object="${jobApplication}">
         <h1>Edit job Application</h1>
 
         <!--To add applicationID and accountId to the object-->
@@ -23,6 +23,12 @@
         <select th:field="*{status}" id="status" name="status">
             <option th:each="status : ${statuses}" th:value="${status.name()}" th:text="${status.name().toLowerCase()}">
         </select>
+
+        <label for="location">Location</label>
+        <input type="text" th:field="*{location}" id="location" name="location">
+
+        <label for="dateApplied">Date Applied</label>
+        <input type="date" th:field="*{dateApplied}" id="dateApplied" name="dateApplied">
 
         <button type="submit">Update</button>
     </form>

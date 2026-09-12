@@ -4,6 +4,7 @@ import com.jobhelp.jobapplicationhelper.models.ApplicationStatus;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.relational.core.mapping.Column;
 import org.springframework.data.relational.core.mapping.Table;
+import java.time.LocalDate;
 
 @Table("job_applications")
 public class JobApplicationEntity {
@@ -24,16 +25,30 @@ public class JobApplicationEntity {
     @Column("status")
     private ApplicationStatus status;
 
+    @Column("location")
+    private String location;
+
+    @Column("date_created")
+    private LocalDate dateApplied;
+
     public JobApplicationEntity() {
 
     }
 
-    public JobApplicationEntity(Long applicationID, Long accountID, String company, String role, ApplicationStatus status) {
+    public JobApplicationEntity(Long applicationID,
+                                Long accountID,
+                                String company,
+                                String role,
+                                ApplicationStatus status,
+                                String location,
+                                LocalDate dateApplied) {
         this.company = company;
         this.applicationID = applicationID;
         this.accountID = accountID;
         this.role = role;
         this.status = status;
+        this.location = location;
+        this.dateApplied = dateApplied;
     }
 
     public Long getApplicationID() {
@@ -74,6 +89,22 @@ public class JobApplicationEntity {
 
     public void setStatus(ApplicationStatus applicationStatus) {
         this.status = applicationStatus;
+    }
+
+    public String getLocation() {
+        return location;
+    }
+
+    public void setLocation(String location) {
+        this.location = location;
+    }
+
+    public LocalDate getDateApplied() {
+        return dateApplied;
+    }
+
+    public void setDateApplied(LocalDate dateApplied) {
+        this.dateApplied = dateApplied;
     }
 
     @Override

@@ -87,7 +87,6 @@ public class JobApplicationDataServiceForRepository implements JobApplicationDat
         // So that application doesn't attempt to update
         entity.setApplicationID(null);
         JobApplicationEntity result = jobApplicationRepository.save(entity);
-        System.out.println("SAVED STATUS: " + result.getStatus());
 
         if(result == null) {
             return 0;

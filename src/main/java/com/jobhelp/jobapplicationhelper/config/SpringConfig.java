@@ -3,6 +3,7 @@ package com.jobhelp.jobapplicationhelper.config;
 import com.jobhelp.jobapplicationhelper.data.JobApplicationDataAccessInterface;
 import com.jobhelp.jobapplicationhelper.data.JobApplicationDataServiceForRepository;
 import com.jobhelp.jobapplicationhelper.data.UserRepositoryInterface;
+import com.jobhelp.jobapplicationhelper.data.prototypes.JobApplicationDataService;
 import com.jobhelp.jobapplicationhelper.services.UserService;
 import com.jobhelp.jobapplicationhelper.services.UserServiceInterface;
 import com.jobhelp.jobapplicationhelper.services.JobApplicationService;
@@ -35,7 +36,7 @@ public class SpringConfig {
 
     @Bean(name="jobApplicationDAO")
     public JobApplicationDataAccessInterface getJobApplicationDataService() {
-        return new JobApplicationDataServiceForRepository(dataSource);
-//        return new JobApplicationDataService();
+//        return new JobApplicationDataServiceForRepository(dataSource);
+        return new JobApplicationDataService();
     }
 }

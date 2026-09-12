@@ -19,9 +19,11 @@
     <table>
         <thead>
             <tr>
-                <th>Company</th>
+                <th th:text="'Company (' + ${applications.size()} + ')'">Company</th>
                 <th>Role</th>
                 <th>Status</th>
+                <th>Location</th>
+                <th>Date Applied</th>
                 <th colspan="2">
                     <a class="table-btn" href="/applications/addNew">
                         <span class="material-symbols-rounded">add</span>
@@ -37,6 +39,8 @@
                 <td th:text="${currentApplication.company}">Company</td>
                 <td th:text="${currentApplication.role}">Role</td>
                 <td th:text="${currentApplication.status.displayName}">Status</td>
+                <td th:text="${currentApplication.location}">Location</td>
+                <td th:text="${#temporals.format(currentApplication.dateApplied, 'dd/MM/yy')}">Date Applied</td>
 
                 <td>
                     <!--Edit form-->
@@ -46,6 +50,8 @@
                         <input name="company" type="hidden" th:value="${currentApplication.company}">
                         <input name="role" type="hidden" th:value="${currentApplication.role}">
                         <input name="status" type="hidden" th:value="${currentApplication.status}">
+                        <input name="location" type="hidden" th:value="${currentApplication.location}">
+                        <input name="dateApplied" type="hidden" th:value="${currentApplication.dateApplied}">
                         <button type="submit" class="table-btn" name="editApplication">
                             <span class="material-symbols-rounded">edit</span>
                         </button>

@@ -86,8 +86,7 @@
 
         @PostMapping("/edit")
         public String editApplicationForm(@Valid JobApplication currentApplication, Model model) {
-
-            model.addAttribute("application", currentApplication);
+            model.addAttribute("jobApplication", currentApplication);
             model.addAttribute("statuses", ApplicationStatus.values());
             return "editApplication";
         }
@@ -95,7 +94,6 @@
         @PostMapping("/updateApplication")
         public String updateApplication(@Valid JobApplication application, BindingResult bindingResult,
                                         @AuthenticationPrincipal UserEntity user) {
-
             jobApplicationService.updateOne(application.getApplicationID(), application, user.getId());
             return "redirect:/applications";
         }

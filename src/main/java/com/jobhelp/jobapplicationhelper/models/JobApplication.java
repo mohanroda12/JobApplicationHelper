@@ -1,5 +1,7 @@
 package com.jobhelp.jobapplicationhelper.models;
 
+import java.time.LocalDate;
+
 public class JobApplication {
 
     private Long accountID;
@@ -7,13 +9,23 @@ public class JobApplication {
     private String company;
     private String role;
     private ApplicationStatus status;
+    private String location;
+    private LocalDate dateApplied;
 
-    public JobApplication(Long applicationID, Long accountID, String company, String role, ApplicationStatus status) {
+    public JobApplication(Long applicationID,
+                          Long accountID,
+                          String company,
+                          String role,
+                          ApplicationStatus status,
+                          String location,
+                          LocalDate dateApplied) {
         this.company = company;
         this.applicationID = applicationID;
         this.accountID = accountID;
         this.role = role;
         this.status = status;
+        this.location = location;
+        this.dateApplied = dateApplied;
     }
 
     public JobApplication() {
@@ -58,6 +70,22 @@ public class JobApplication {
 
     public void setStatus(ApplicationStatus applicationStatus) {
         this.status = applicationStatus;
+    }
+
+    public String getLocation() {
+        return location;
+    }
+
+    public void setLocation(String location) {
+        this.location = location;
+    }
+
+    public LocalDate getDateApplied() {
+        return dateApplied;
+    }
+
+    public void setDateApplied(LocalDate dateApplied) {
+        this.dateApplied = dateApplied;
     }
 
     @Override
