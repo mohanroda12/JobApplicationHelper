@@ -53,7 +53,7 @@ public class JobApplicationDataService implements JobApplicationDataAccessInterf
 
     @Override
     // Returns ID number of element inserted
-    public long addOne(JobApplication newApplication) {
+    public JobApplication addOne(JobApplication newApplication) {
         SimpleJdbcInsert simpleJdbcInsert = new SimpleJdbcInsert(jdbcTemplate);
         simpleJdbcInsert.withTableName("job_applications").usingGeneratedKeyColumns("application_id");
 
@@ -66,9 +66,10 @@ public class JobApplicationDataService implements JobApplicationDataAccessInterf
         parameters.put("date_applied", newApplication.getDateApplied());
         parameters.put("account_id", newApplication.getAccountID());
 
-        Number result = simpleJdbcInsert.executeAndReturnKey(parameters);
+        Number generatedID = simpleJdbcInsert.executeAndReturnKey(parameters);
+        newApplication.setApplicationID(generatedID.longValue());
 
-        return result.longValue();
+        return newApplication;
     }
 
     @Override

@@ -13,7 +13,7 @@ public class JobApplicationService implements JobApplicationServiceInterface{
     JobApplicationDataAccessInterface<JobApplication> jobApplicationDAO;
 
     @Override
-    public JobApplication getJobApplicationsByApplicationID(long applicationID) {
+    public JobApplication getJobApplicationsByApplicationID(long applicationID, long accountID) {
         return jobApplicationDAO.getByApplicationID(applicationID);
     }
 
@@ -28,7 +28,7 @@ public class JobApplicationService implements JobApplicationServiceInterface{
     }
 
     @Override
-    public long addOne(JobApplication newApplication, long currentAccountID) {
+    public JobApplication addOne(JobApplication newApplication, long currentAccountID) {
         if(newApplication.getAccountID() != currentAccountID) {
             throw new AccessDeniedException("Not authorised to create this application");
         }

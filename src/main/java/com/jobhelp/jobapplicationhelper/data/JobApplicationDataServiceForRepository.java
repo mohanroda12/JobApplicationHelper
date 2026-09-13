@@ -80,7 +80,7 @@ public class JobApplicationDataServiceForRepository implements JobApplicationDat
     }
 
     @Override
-    public long addOne(JobApplication newApplication) {
+    public JobApplication addOne(JobApplication newApplication) {
 
         JobApplicationEntity entity = modelMapper.map(newApplication, JobApplicationEntity.class);
 
@@ -89,10 +89,10 @@ public class JobApplicationDataServiceForRepository implements JobApplicationDat
         JobApplicationEntity result = jobApplicationRepository.save(entity);
 
         if(result == null) {
-            return 0;
+            return null;
         }
         else {
-            return result.getApplicationID();
+            return modelMapper.map(result, JobApplication.class);
         }
     }
 
