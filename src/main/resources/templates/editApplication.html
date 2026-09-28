@@ -28,7 +28,9 @@
         <input type="text" th:field="*{location}" id="location" name="location">
 
         <label for="dateApplied">Date Applied</label>
-        <input type="date" th:field="*{dateApplied}" id="dateApplied" name="dateApplied">
+        <input type="date"
+               th:value="${#temporals.format(jobApplication.dateApplied, 'yyyy-MM-dd')}"
+               id="dateApplied" name="dateApplied">
 
         <button type="submit">Update</button>
     </form>

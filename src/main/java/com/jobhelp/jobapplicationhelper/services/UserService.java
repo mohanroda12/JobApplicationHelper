@@ -4,6 +4,9 @@ import com.jobhelp.jobapplicationhelper.data.UserRepositoryInterface;
 import com.jobhelp.jobapplicationhelper.entities.UserEntity;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class UserService implements UserServiceInterface{
 
     private final UserRepositoryInterface userRepository;
@@ -12,6 +15,12 @@ public class UserService implements UserServiceInterface{
     public UserService(UserRepositoryInterface userRepository, PasswordEncoder passwordEncoder) {
         this.userRepository = userRepository;
         this.passwordEncoder = passwordEncoder;
+    }
+
+    public List<UserEntity> allUsers() {
+        List<UserEntity> users = new ArrayList<>();
+        userRepository.findAll().forEach(users::add);
+        return users;
     }
 
     @Override
