@@ -7,7 +7,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import java.util.ArrayList;
 import java.util.List;
 
-public class UserService implements UserServiceInterface{
+public class UserService implements UserServiceInterface {
 
     private final UserRepositoryInterface userRepository;
     private final PasswordEncoder passwordEncoder;
