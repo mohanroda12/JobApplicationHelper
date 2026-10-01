@@ -6,7 +6,9 @@ import com.jobhelp.jobapplicationhelper.dto.RegisterUserDto;
 import com.jobhelp.jobapplicationhelper.entities.UserEntity;
 import com.jobhelp.jobapplicationhelper.services.AuthenticationService;
 import com.jobhelp.jobapplicationhelper.services.JwtService;
+import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -25,9 +27,11 @@ public class AuthenticationRestController {
     }
 
     @PostMapping("/signup")
-    public ResponseEntity<UserEntity> register(@RequestBody RegisterUserDto registerUserDto) {
+    public ResponseEntity<?> register(@Valid @RequestBody RegisterUserDto registerUserDto, BindingResult result) {
+        if(result.hasErrors()) {
+            return ResponseEntity.badRequest().body(result.getAllErrors());
+        }
         UserEntity registeredUser = authenticationService.signup(registerUserDto);
-        System.out.println("LOGGED IN");
         return ResponseEntity.ok(registeredUser);
     }
 

@@ -1,9 +1,12 @@
 import { useNavigate } from "react-router-dom";
+import {useState} from "react";
+
 const URL = "http://localhost:8080/api/v1/auth"
 
 function SignUpForm() {
 
     const navigate = useNavigate()
+    const[error, setError] = useState("")
 
     async function signUp( email: string, password: string, username: string) {
         try {
@@ -19,6 +22,8 @@ function SignUpForm() {
                 }
             )
             if(!result.ok) {
+                const error_data = await result.json()
+                setError(error_data[0].defaultMessage)
                 return
             }
             navigate("/login")
@@ -52,6 +57,7 @@ function SignUpForm() {
             <label htmlFor="password">Password</label>
             <input type="password" id="password" name="password"/>
 
+            <p className="login-alert">{error}</p>
             <input type="submit" value="Sign Up" className="login-button"/>
             <a href="">Forgot password</a>
         </form>

@@ -36,7 +36,7 @@ public class UserEntity implements UserDetails {
     @Column
     private boolean enabled = true;
 
-    public UserEntity(String password, String name, String email) {
+    public UserEntity(String name, String email, String password) {
         this.name = name;
         this.email = email;
         this.password = password;
