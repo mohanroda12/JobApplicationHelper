@@ -33,10 +33,10 @@ function SignUpForm() {
         }
     }
 
-    const handleSignupSubmit = (e: React.SubmitEvent) => {
+    const handleSignupSubmit = async (e: React.SubmitEvent) => {
         e.preventDefault()
         const data = new FormData(e.target)
-        signUp(
+        await signUp(
             data.get("email") as string,
             data.get("password") as string,
             data.get("username") as string

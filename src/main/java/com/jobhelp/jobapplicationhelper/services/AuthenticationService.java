@@ -5,7 +5,9 @@ import com.jobhelp.jobapplicationhelper.dto.LoginUserDto;
 import com.jobhelp.jobapplicationhelper.dto.RegisterUserDto;
 import com.jobhelp.jobapplicationhelper.entities.UserEntity;
 import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -31,16 +33,21 @@ public class AuthenticationService {
         return userRepository.save(user);
     }
 
-    public UserEntity login(LoginUserDto loginUser) {
+    public UserEntity login(LoginUserDto loginUser) throws BadCredentialsException {
         UserEntity user = userRepository.findByEmail(loginUser.getEmail())
-                .orElseThrow(() -> new RuntimeException("User not found"));
+                .orElseThrow(() -> new BadCredentialsException("Username or password is incorrect"));
 
-        authenticationManager.authenticate(
-                new UsernamePasswordAuthenticationToken(
-                        loginUser.getEmail(),
-                        loginUser.getPassword()
-                )
-        );
+        try {
+            authenticationManager.authenticate(
+                    new UsernamePasswordAuthenticationToken(
+                            loginUser.getEmail(),
+                            loginUser.getPassword()
+                    )
+            );
+        }
+        catch(AuthenticationException e) {
+            throw new BadCredentialsException("Username or password is incorrect");
+        }
         return user;
     }
 }

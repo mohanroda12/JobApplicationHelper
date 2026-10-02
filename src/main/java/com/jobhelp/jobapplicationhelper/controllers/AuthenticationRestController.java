@@ -8,6 +8,8 @@ import com.jobhelp.jobapplicationhelper.services.AuthenticationService;
 import com.jobhelp.jobapplicationhelper.services.JwtService;
 import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.authentication.BadCredentialsException;
+import org.springframework.security.core.AuthenticationException;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -36,8 +38,15 @@ public class AuthenticationRestController {
     }
 
     @PostMapping("/login")
-    public ResponseEntity<LoginResponse> authenticate(@RequestBody LoginUserDto loginUserDto) {
-        UserEntity authenticatedUser = authenticationService.login(loginUserDto);
+    public ResponseEntity<?> authenticate(@Valid @RequestBody LoginUserDto loginUserDto) {
+        UserEntity authenticatedUser;
+        try {
+            authenticatedUser = authenticationService.login(loginUserDto);
+        }
+        catch(BadCredentialsException e) {
+            return ResponseEntity.badRequest().body(e.getMessage());
+        }
+
         String jwtToken = jwtService.generateAccessToken(authenticatedUser);
         LoginResponse loginResponse = new LoginResponse(jwtToken, jwtService.getJwtExpiration());
         return ResponseEntity.ok(loginResponse);
