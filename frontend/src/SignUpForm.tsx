@@ -23,7 +23,7 @@ function SignUpForm() {
             )
             if(!result.ok) {
                 const error_data = await result.json()
-                setError(error_data[0].defaultMessage)
+                setError(error_data.error)
                 return
             }
             navigate("/login")
